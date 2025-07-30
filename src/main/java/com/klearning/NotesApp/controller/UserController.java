@@ -16,9 +16,12 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
-    public User registerUser(@RequestBody  User user) {
-        return userService.createUser(user);
+    public void registerUser(@RequestBody  User user) {
+        userService.createUser(user);
     }
 
-
+    @PostMapping("/login")
+    public void loginUser(@RequestBody User user) {
+        //TODO: Implement login api here
+    }
 }

@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.lang.annotation.Documented;
+import java.time.LocalDateTime;
 
 @Data
 @Document(collection ="notes")
@@ -19,5 +20,5 @@ public class Note {
     private ObjectId id;
     private String title;
     private String description;
-    // add time as createdAt
+    private LocalDateTime createdAt = LocalDateTime.now();
 }
