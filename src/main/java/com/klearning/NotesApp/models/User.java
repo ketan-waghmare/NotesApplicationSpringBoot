@@ -22,7 +22,6 @@ public class User {
     @Indexed
     @NonNull
     private String userName;
-    @NonNull
     private String email;
     @NonNull
     private String password;
