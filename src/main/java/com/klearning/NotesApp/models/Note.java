@@ -1,5 +1,7 @@
 package com.klearning.NotesApp.models;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,6 +19,8 @@ import java.time.LocalDateTime;
 public class Note {
 
     @Id
+    @JsonSerialize(using = ToStringSerializer.class)
+
     private ObjectId id;
     private String title;
     private String description;
