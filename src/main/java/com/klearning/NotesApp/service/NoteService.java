@@ -3,6 +3,7 @@ package com.klearning.NotesApp.service;
 import com.klearning.NotesApp.models.Note;
 import com.klearning.NotesApp.models.User;
 import com.klearning.NotesApp.repository.NoteRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class NoteService {
 
     @Autowired
@@ -31,6 +33,14 @@ public class NoteService {
         } catch (Exception e) {
             System.out.println("Exception_while_saving = "+e.getMessage());
             throw new RuntimeException(e);
+        }
+    }
+
+    public void saveNote(Note note) {
+        try{
+            noteRepository.save(note);
+        } catch (Exception e) {
+            log.error("Exception ", e);
         }
     }
 
