@@ -97,6 +97,7 @@ public class NotesController {
                 Note oldNote = noteById.get();
                 oldNote.setTitle(newNote.getTitle() != null && !newNote.getTitle().isEmpty() ? newNote.getTitle() : oldNote.getTitle());
                 oldNote.setDescription(newNote.getDescription() != null && !newNote.getDescription().isEmpty() ? newNote.getDescription() : oldNote.getDescription());
+                return new ResponseEntity<>(oldNote, HttpStatus.OK);
             }
         }
 
